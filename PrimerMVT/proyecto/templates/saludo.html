@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="with=device-with, initial-scale=1.0">
+        <title>Document</title>    
+    </head>
+    <body>
+        <h1>Hola, desde html saludos para </h1>
+        <h2> {{nombre}} ,  {{edad}} </h2>
+        <h2>Muestro lista </h2>
+        {% for elemento in lista %}
+            {% if elemento == 1 %}
+                <h3 style="color:red";>{{elemento}}</h3>
+            {% else %}   
+                <h3 style="color:aquamarine";>{{elemento}}</h3>
+            {% endif %}     
+        {% endfor %}    
+    </body>
+</html>  

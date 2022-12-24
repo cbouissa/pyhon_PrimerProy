@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="with=device-with, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Lista de Familiares</H1>
+    <p>hola</p>
+ 
+    {% for elemento in familiares %}
+         <p style="color:red";>Nombre: {{elemento.name}}</p> 
+         <p>Edad: {{elemento.age}}</p>     
+         {% if elemento.sex == 'F' %}
+            <p>Sexo: Femenino</p>
+         {% else %}   
+            <p>Sexo: Masculino</p>
+         {% endif %}     
+         {% if elemento.smoker == True %}
+             <p>Es Fumador? : SI</p>
+         {% else %}   
+             <p>Es Fumador? : NO</p>
+         {% endif %}     
+    {% endfor %}   
+   
+</body>
+</html>
