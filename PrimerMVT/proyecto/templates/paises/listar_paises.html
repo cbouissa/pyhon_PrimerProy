@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de paises
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de paises</h1>
+    <h2>Crear nuevo pais </h2> <a href="/paises/crear-paises/" class="btn btn-primary">Crear</a>
+    {% for pais in paises %}
+
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNhlcMOBQV7TCgOAWmEllk1eYS4t7YWJKBDewNQ1a3mOmd_1ie0Zzo4aVEHNEtSPC9eM&usqp=CAU">
+            <div class="card-body">
+            <h5 class="card-title">{{pais.nombrePais}}</h5>
+            <p class="card-text">Población {{pais.poblacionPais}}</p>
+            
+            
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}

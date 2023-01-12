@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FamilyConfig(AppConfig):
+class AtraccionesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'family'
+    name = 'atracciones'
