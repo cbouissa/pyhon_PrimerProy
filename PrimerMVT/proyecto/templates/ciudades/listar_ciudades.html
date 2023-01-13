@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de ciudades
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de ciudades</h1>
+    <h2>Crear nueva ciudad </h2> <a href="/ciudades/crear-ciudades/" class="btn btn-primary">Crear</a>
+    {% for ciudad in ciudades %}
+   
+         <p>Ciudad : {{ciudad.nombre}} </p>
+         <p>Departamnto : {{ciudad.departamento}} </p>
+
+    {% endfor %}
+
+       
+{% endblock %}

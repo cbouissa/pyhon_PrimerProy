@@ -27,7 +27,9 @@ urlpatterns = [
     path('vista-con-template/', vista_con_template),
     path('saludo-template/', saludo_desde_template),
 
+
     
    path('paises/', include('paises.urls')),
-    
+   path('ciudades/', include('ciudades.urls')), 
+   path('atracciones/', include('atracciones.urls')), 
 ]

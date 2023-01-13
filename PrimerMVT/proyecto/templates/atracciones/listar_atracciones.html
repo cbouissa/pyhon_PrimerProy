@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de atracciones
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de atracciones</h1>
+    <h2>Crear nueva atracción </h2> <a href="/atracciones/crear-atracciones/" class="btn btn-primary">Crear</a>
+    {% for atraccion in atracciones %}
+   
+         <p>Atraccion : {{atraccion.nombreAtr}} </p>
+         <p>Ciudad : {{atraccion.codigoCiudadAtr}} </p>
+
+    {% endfor %}
+
+       
+{% endblock %}
