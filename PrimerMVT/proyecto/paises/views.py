@@ -33,7 +33,7 @@ def crear_paises(request):
 def listar_paises(request):
     if 'search' in request.GET:
         search = request.GET['search']
-        paises = Paises.objects.filter(name__icontains=search)
+        paises = Paises.objects.filter(nombrePais__icontains=search)
     else:
         paises = Paises.objects.all()
     context = {
