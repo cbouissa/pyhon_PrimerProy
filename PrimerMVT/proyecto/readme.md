@@ -1,6 +1,8 @@
-Primera entrega del proyecto final 12-1-2023
+Proyecto final 08-02-2023 
 
 Realizado por: Claudia Bouissa
+
+Phyton con Django
 
 Los modelos son: Paises, Ciudades y Atracciones
 

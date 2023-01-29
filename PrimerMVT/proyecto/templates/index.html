@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h3>Hola !!! Primera entrega</h3>
-    <img src="https://media.istockphoto.com/id/577965774/es/foto/banderas-nacionales-de-los-pa%C3%ADses-del-mundo-bandera-brasile%C3%B1a.jpg?s=612x612&w=0&k=20&c=yGVNINUNvv80akcNjXjlcf-4OGEAnIH_PIBB8Xcf2rQ=">
-    {% endblock %}
+    <h1>Bienvenidos!!</h1>
+
+    {{request.user}}
+
+    {{request.user.profile.phone}}
+
+    {% if message %}
+        <h2>{{message}}</h2>
+    {% endif %}
+    
+{% endblock %}

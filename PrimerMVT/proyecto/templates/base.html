@@ -30,7 +30,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/atracciones/listar-atracciones/">Listado de atracciones</a>
                     </li>
-                  
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuarios/logout/">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuarios/actualizar/">{{request.user.username}}</a>
+                    </li>
+                        {% if request.user.profile.profile_picture.url != '' %}
+                            <img src="{{request.user.profile.profile_picture.url}}" alt="foto" width="50px" height="50px">
+                        {% endif %}
+                    {% else %}
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuario/login/">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuario/signup/">Signup</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/paises/listar-paises/" method="GET">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
