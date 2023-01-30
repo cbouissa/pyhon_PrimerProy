@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Confirmación de borrado
+{% endblock %}
+
+{% block content %}
+
+    <h2>Borrar ciudad: {{object.name}}</h2>
+    <p>Seguro que desea eliminarla?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+    </form>
+
+
+{% endblock %}

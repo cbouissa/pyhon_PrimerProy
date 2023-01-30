@@ -1,3 +1,4 @@
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.shortcuts import render
 from ciudades.models import Ciudades 
 from ciudades.forms import CiudadesForm
@@ -41,3 +42,49 @@ def listar_ciudades(request):
         'ciudades':ciudades,
     }
     return render(request, 'ciudades/listar_ciudades.html', context=context)
+
+
+# Actualiza 
+def actualizar_ciudades(request, pk):
+    ciudad = Ciudades.objects.get(id=pk)
+
+    if request.method == 'GET':
+        context = {
+            'form': CiudadesForm(
+                initial={
+                    'codigoCiudad':ciudad.codigoCiudad,
+                    'nombre':ciudad.nombre,
+                    'departamento':ciudad.departamento,   
+                    'cantidadHabitantes':ciudad.cantidadHabitantes,                
+                }
+            )
+        }
+
+        return render(request, 'ciudades/actualizar_ciudades.html', context=context)
+
+    elif request.method == 'POST':
+        form = CiudadesForm(request.POST)
+        if form.is_valid():
+            ciudad.codigoCiudad = form.cleaned_data['codigoCiudad']
+            ciudad.nombre = form.cleaned_data['nombre']
+            ciudad.departamento = form.cleaned_data['departamento']
+            ciudad.cantidadHabitantes = form.cleaned_data['cantidadHabitantes']
+            ciudad.save()
+            
+            context = {
+                'message': 'Se actualizó correctamente la ciudad'
+            }
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': CiudadesForm()
+            }
+        return render(request, 'ciudades/actualizar_ciudades.html', context=context)
+
+
+
+
+class eliminar_ciudades(DeleteView):
+    model = Ciudades
+    template_name = 'ciudades/eliminar_ciudades.html'
+    success_url = '/ciudades/listar-ciudades/'  

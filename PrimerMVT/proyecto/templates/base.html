@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/paises/listar-paises/">Listado de paises</a>
+                        <a class="nav-link" href="/paises/listar-paises/">Paises</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/ciudades/listar-ciudades/">Listado de ciudades</a>
+                        <a class="nav-link" href="/ciudades/listar-ciudades/">Ciudades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/atracciones/listar-atracciones/">Listado de atracciones</a>
+                        <a class="nav-link" href="/atracciones/listar-atracciones/">Atracciones</a>
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
@@ -43,10 +43,10 @@
                     {% else %}
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/usuario/login/">Login</a>
+                        <a class="nav-link" href="/usuarios/login/">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/usuario/signup/">Signup</a>
+                        <a class="nav-link" href="/usuarios/signup/">Signup</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -71,7 +71,7 @@
         <!-- Section: Social media -->
         <section class="mb-4">
             <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button" 
             ><i class="fab fa-facebook-f"></i
             ></a>
     

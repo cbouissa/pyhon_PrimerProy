@@ -8,11 +8,14 @@
 
     <h1>Listado de ciudades</h1>
     <h2>Crear nueva ciudad </h2> <a href="/ciudades/crear-ciudades/" class="btn btn-primary">Crear</a>
+  
+
     {% for ciudad in ciudades %}
    
          <p>Ciudad : {{ciudad.nombre}} </p>
          <p>Departamnto : {{ciudad.departamento}} </p>
-
+         <a href="/ciudades/actualizar-ciudades/{{ciudad.id}}/" class="btn btn-primary">Actualizar</a>
+         <a href="/ciudades/eliminar-ciudades/{{ciudad.id}}/" class="btn btn-danger">Borrar</a>
     {% endfor %}
 
        

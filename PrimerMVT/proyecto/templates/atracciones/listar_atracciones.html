@@ -6,12 +6,14 @@
 
 {% block content %}
 
-    <h1>Listado de atracciones</h1>
-    <h2>Crear nueva atracción </h2> <a href="/atracciones/crear-atracciones/" class="btn btn-primary">Crear</a>
+    <h1>Atracciones</h1>
+    <a href="/atracciones/crear-atracciones/" class="btn btn-primary">Crear atracción</a>
     {% for atraccion in atracciones %}
    
          <p>Atraccion : {{atraccion.nombreAtr}} </p>
          <p>Ciudad : {{atraccion.codigoCiudadAtr}} </p>
+         <a href="/atracciones/actualizar-atracciones/{{atraccion.id}}/" class="btn btn-primary">Actualizar</a>
+         <a href="/atracciones/eliminar-atracciones/{{atraccion.id}}/" class="btn btn-danger">Borrar</a>
 
     {% endfor %}
 

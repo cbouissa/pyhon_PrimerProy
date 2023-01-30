@@ -1,3 +1,4 @@
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.shortcuts import render
 from paises.models import Paises 
 from paises.forms import PaisesForm
@@ -41,4 +42,46 @@ def listar_paises(request):
     }
     return render(request, 'paises/listar_paises.html', context=context)
 
-  
+
+# Actualiza paises
+def actualizar_paises(request, pk):
+    pais = Paises.objects.get(id=pk)
+
+    if request.method == 'GET':
+        context = {
+            'form': PaisesForm(
+                initial={
+                    'codigoPais':pais.codigoPais,
+                    'nombrePais':pais.nombrePais,
+                    'poblacionPais':pais.poblacionPais,                   
+                }
+            )
+        }
+
+        return render(request, 'paises/actualizar_paises.html', context=context)
+
+    elif request.method == 'POST':
+        form = PaisesForm(request.POST)
+        if form.is_valid():
+            pais.codigoPais = form.cleaned_data['codigoPais']
+            pais.nombrePais = form.cleaned_data['nombrePais']
+            pais.poblacionPais = form.cleaned_data['poblacionPais']
+            pais.save()
+            
+            context = {
+                'message': 'Se actualizó correctamente el país'
+            }
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': PaisesForm()
+            }
+        return render(request, 'paises/actualizar_paises.html', context=context)
+
+
+
+
+class eliminar_paises(DeleteView):
+    model = Paises
+    template_name = 'paises/eliminar_paises.html'
+    success_url = '/paises/listar-paises/'  
