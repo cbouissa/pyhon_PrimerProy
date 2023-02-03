@@ -82,3 +82,7 @@ class eliminar(DeleteView):
     model = Galeria
     template_name = 'galeria/eliminar.html'
     success_url = '/galeria/listar/'  
+
+def acercade(request):
+    return render(request,'galeria/acercade.html',context={})
+

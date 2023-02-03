@@ -18,3 +18,5 @@ En el index.html se despliegan los textos y fotos que el usuario (admin) lo requ
 
 La idea de este sitio fue encontrar en el mismo experiencias de Usuarios en viajes, mostrando Paises, Ciudades y Atracciones (es muy básico por el momento, solo para la entrega del proyecto y sus requerimientos)
 
+Superusuario : Claudia/clau
+
