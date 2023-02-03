@@ -1,3 +1,6 @@
 from django.contrib import admin
+from ciudades.models import Ciudades
 
-# Register your models here.
+@admin.register(Ciudades)
+class ciudadesAdmin(admin.ModelAdmin):
+    list_display = ('nombre','departamento')

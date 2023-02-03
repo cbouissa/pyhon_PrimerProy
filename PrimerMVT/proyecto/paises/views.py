@@ -13,12 +13,13 @@ def crear_paises(request):
         return render(request, 'paises/crear_paises.html', context=context)
 
     elif request.method == 'POST':
-        form = PaisesForm(request.POST)
+        form = PaisesForm(request.POST, request.FILES)
         if form.is_valid():
             Paises.objects.create(
                 codigoPais=form.cleaned_data['codigoPais'],
                 nombrePais=form.cleaned_data['nombrePais'],
                 poblacionPais=form.cleaned_data['poblacionPais'],
+                bandera = form.cleaned_data['bandera'],
             )
             context = {
                 'message': 'Pais creado exitosamente'
@@ -53,7 +54,8 @@ def actualizar_paises(request, pk):
                 initial={
                     'codigoPais':pais.codigoPais,
                     'nombrePais':pais.nombrePais,
-                    'poblacionPais':pais.poblacionPais,                   
+                    'poblacionPais':pais.poblacionPais,  
+                    'bandera':pais.bandera,                   
                 }
             )
         }
@@ -61,11 +63,12 @@ def actualizar_paises(request, pk):
         return render(request, 'paises/actualizar_paises.html', context=context)
 
     elif request.method == 'POST':
-        form = PaisesForm(request.POST)
+        form = PaisesForm(request.POST, request.FILES )
         if form.is_valid():
             pais.codigoPais = form.cleaned_data['codigoPais']
             pais.nombrePais = form.cleaned_data['nombrePais']
             pais.poblacionPais = form.cleaned_data['poblacionPais']
+            pais.bandera =form.cleaned_data['bandera'] 
             pais.save()
             
             context = {

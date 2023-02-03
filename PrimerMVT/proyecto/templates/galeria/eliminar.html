@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Confirmación de borrado
+{% endblock %}
+
+{% block content %}
+
+    <h2>Borrar imagen: {{object.name}}</h2>
+    <p>Seguro que desea eliminar la imagen ?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+    </form>
+
+
+{% endblock %}

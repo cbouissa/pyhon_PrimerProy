@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Actualización de atracciones
+    Atracciones
 {% endblock %}
 
 {% block content %}
-    <h1>Actualización atracción[</h1>
-
-
+    <h3>Actualización atracción</h3>
 
     {% if form %}
 
-        <form action="" method="POST">
-
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             <table>

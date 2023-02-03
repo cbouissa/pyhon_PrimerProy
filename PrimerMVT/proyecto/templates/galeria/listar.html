@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Galeria
+{% endblock %}
+
+{% block content %}
+
+    <h1>Galeria de fotos</h1>
+     <a href="/galeria/crear/" class="btn btn-primary">Crear</a>
+    {% for gal in galeria %}
+
+
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-title">{{gal.texto}}</h5>
+            <img style="width:50px;height:50px"  src="{{gal.foto.url}}"/>
+                     
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

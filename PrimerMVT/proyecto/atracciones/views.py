@@ -18,7 +18,7 @@ def crear_atracciones(request):
             Atracciones.objects.create(
                 codigoAtr=form.cleaned_data['codigoAtr'],
                 nombreAtr=form.cleaned_data['nombreAtr'],
-                codigoCiudadAtr=form.cleaned_data['codigoCiudadAtr'],
+                precioAtr=form.cleaned_data['precioAtr'],
                 cantidadPersonas=form.cleaned_data['cantidadPersonas'],
                 activoAtr=form.cleaned_data['activoAtr'],
             )
@@ -56,7 +56,7 @@ def actualizar_atracciones(request, pk):
                 initial={
                     'codigoAtr':atraccion.codigoAtr,
                     'nombreAtr':atraccion.nombreAtr,
-                    'codigoCiudadAtr':atraccion.codigoCiudadAtr,
+                    'precioAtr':atraccion.precioAtr,
                     'cantidadPersonas':atraccion.cantidadPersonas,
                     'activoAtr':atraccion.activoAtr,
                 }
@@ -70,7 +70,7 @@ def actualizar_atracciones(request, pk):
         if form.is_valid():
             atraccion.codigoAtr = form.cleaned_data['codigoAtr']
             atraccion.nombreAtr = form.cleaned_data['nombreAtr']
-            atraccion.codigoCiudadAtr = form.cleaned_data['codigoCiudadAtr']
+            atraccion.precioAtr = form.cleaned_data['precioAtr']
             atraccion.cantidadPersonas = form.cleaned_data['cantidadPersonas']
             atraccion.activoAtr = form.cleaned_data['activoAtr']
             atraccion.save()

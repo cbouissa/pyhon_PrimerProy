@@ -9,12 +9,36 @@
     <h1>Atracciones</h1>
     <a href="/atracciones/crear-atracciones/" class="btn btn-primary">Crear atracción</a>
     {% for atraccion in atracciones %}
-   
-         <p>Atraccion : {{atraccion.nombreAtr}} </p>
-         <p>Ciudad : {{atraccion.codigoCiudadAtr}} </p>
-         <a href="/atracciones/actualizar-atracciones/{{atraccion.id}}/" class="btn btn-primary">Actualizar</a>
-         <a href="/atracciones/eliminar-atracciones/{{atraccion.id}}/" class="btn btn-danger">Borrar</a>
+    <div class="card" style="width: 18rem;">
+           
+        <div class="card-body">
+        <h5 class="card-title">{{atraccion.nombreAtr}}</h5>
+        {% if atraccion.fotoAtr.url != '' %}
+            <img style="width:250px;height:150px" src="{{atraccion.fotoAtr.url}}" >
+        {% endif %}    
+        {% if request.user.is_authenticated %}
+            <p class="card-text">Su precio es ${{atraccion.precioAtr}}</p>
+        {% else %}
+            {% if atraccion.precioAtr == 0 %}
+                <p class="card-text">INGRESO GRATUITO</p>
+            {% else %}
+                <p class="card-text">Inicie sesion para ver el precio</p>
+            {% endif %}
+        {% endif %}
 
+        {% if atraccion.activoAtr == True %}
+            <p>Actualmente se puede visitar</p>
+        {% else %}
+            <p>Actualmente, no está disponible para visitas</p>
+        {% endif %}
+      
+        <a href="/atracciones/actualizar-atracciones/{{atraccion.id}}/" class="btn btn-primary">Actualizar</a>
+        <a href="/atracciones/eliminar-atracciones/{{atraccion.id}}/" class="btn btn-danger">Borrar</a>
+
+        </div>
+    </div>
+
+       
     {% endfor %}
 
        

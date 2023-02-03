@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'ciudades',
     'atracciones',
     'usuarios',
+    'galeria',
 ]
 
 MIDDLEWARE = [

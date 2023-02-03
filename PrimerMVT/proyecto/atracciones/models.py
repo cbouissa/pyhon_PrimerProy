@@ -5,8 +5,10 @@ from django.db import models
 class Atracciones(models.Model):
     codigoAtr = models.IntegerField()
     nombreAtr  = models.CharField(max_length=100)
-    codigoCiudadAtr = models.IntegerField()
+    precioAtr = models.IntegerField()
     cantidadPersonas = models.IntegerField()
     activoAtr = models.BooleanField()
+    fotoAtr = models.ImageField(upload_to='atr_images', null=True, blank=True)
+
 
     

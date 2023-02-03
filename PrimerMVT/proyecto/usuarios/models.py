@@ -8,3 +8,5 @@ class UsuarioPerfil(models.Model):
     foto = models.ImageField(upload_to='profile_images', null=True, blank=True)
     
 
+def __str__(self): 
+        return f"{self.usuario} - {self.foto}"

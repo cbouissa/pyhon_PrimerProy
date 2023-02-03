@@ -5,11 +5,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Bienvenidos!!</h1>
+   
+{% for gal in galeria %}
 
-    {{request.user}}
+    <h5 class="card-title">{{gal.texto}}</h5>
+    <img style="width:100%;"  src="{{gal.foto.url}}"/>
+      
+{% endfor %}
 
-    {{request.user.profile.phone}}
+ 
 
     {% if message %}
         <h2>{{message}}</h2>

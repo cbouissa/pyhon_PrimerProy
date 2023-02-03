@@ -12,10 +12,12 @@
 
 
         <div class="card" style="width: 18rem;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNhlcMOBQV7TCgOAWmEllk1eYS4t7YWJKBDewNQ1a3mOmd_1ie0Zzo4aVEHNEtSPC9eM&usqp=CAU">
-            <div class="card-body">
             <h5 class="card-title">{{pais.nombrePais}}</h5>
-            <p class="card-text">Población {{pais.poblacionPais}}</p>
+            <img style="width:50px;height:50px"  src="{{pais.bandera.url}}"/>
+                              
+            <div class="card-body">
+           
+            <p class="card-text">Población {{pais.poblacionPais}} millones </p>
             <a href="/paises/actualizar-paises/{{pais.id}}/" class="btn btn-primary">Actualizar</a>
             <a href="/paises/eliminar-paises/{{pais.id}}/" class="btn btn-danger">Borrar</a>
 
